@@ -1,9 +1,9 @@
 import React from 'react'
 import Login from './Login'
 
-const Playground = ({loggedIn, setLoggedIn}) => {
+const Playground = () => {
   return (
-    <div>{loggedIn===true?'Welcome to code Playground' : <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> }</div>
+    <div className='main-container'>Welcome to code Playground</div>
   )
 }
 

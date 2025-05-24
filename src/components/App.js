@@ -3,6 +3,7 @@ import "./../styles/App.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Playground from "./Playground";
 import Login from "./Login";
+import PrivateRoute from "./PrivateRoute";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -28,12 +29,12 @@ const App = () => {
           <Route
             path="/playground"
             element={
-              <Playground loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+              <PrivateRoute loggedIn={loggedIn}> <Playground/> </PrivateRoute>
             }
           ></Route>
           <Route
             path="/login"
-            element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
+            element={<Login onLogin={()=>setLoggedIn(true)} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
           ></Route>
         </Routes>
       </BrowserRouter>
